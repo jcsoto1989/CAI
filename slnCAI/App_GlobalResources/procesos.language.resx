@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="agregarFecha" xml:space="preserve">
+    <value>Agregar Fechas</value>
+    <comment>Add Dates</comment>
+  </data>
+  <data name="banco" xml:space="preserve">
+    <value>Banco</value>
+    <comment>Bank</comment>
+  </data>
+  <data name="Cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="contactoEmergencia" xml:space="preserve">
+    <value>Contacto Emergencia</value>
+    <comment>Emergency Contact</comment>
+  </data>
+  <data name="dia" xml:space="preserve">
+    <value>Día</value>
+    <comment>Day</comment>
+  </data>
+  <data name="direccion" xml:space="preserve">
+    <value>Direccion</value>
+    <comment>Address</comment>
+  </data>
+  <data name="domingo" xml:space="preserve">
+    <value>Do</value>
+    <comment>Sun</comment>
+  </data>
+  <data name="Eliminar" xml:space="preserve">
+    <value>Eliminar</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Correo Electronico</value>
+    <comment>Email</comment>
+  </data>
+  <data name="espacio" xml:space="preserve">
+    <value>Espacio</value>
+    <comment>Room</comment>
+  </data>
+  <data name="estado" xml:space="preserve">
+    <value>Estado</value>
+    <comment>State</comment>
+  </data>
+  <data name="estadoCivil" xml:space="preserve">
+    <value>Estado Civil</value>
+    <comment>Marital Status</comment>
+  </data>
+  <data name="evento" xml:space="preserve">
+    <value>Evento</value>
+    <comment>Event</comment>
+  </data>
+  <data name="fecha" xml:space="preserve">
+    <value>Fecha</value>
+    <comment>Date</comment>
+  </data>
+  <data name="fechaFinal" xml:space="preserve">
+    <value>Fecha Final</value>
+    <comment>Finish Date</comment>
+  </data>
+  <data name="fechaInicio" xml:space="preserve">
+    <value>Fecha Inicio</value>
+    <comment>Start Date</comment>
+  </data>
+  <data name="fechaNacimiento" xml:space="preserve">
+    <value>Fecha Nacimiento</value>
+    <comment>Date of Birthday</comment>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Guardar</value>
+    <comment>Save</comment>
+  </data>
+  <data name="horaFinal" xml:space="preserve">
+    <value>Hora Final</value>
+    <comment>Finish Time</comment>
+  </data>
+  <data name="horaInicio" xml:space="preserve">
+    <value>Hora Inicio</value>
+    <comment>Start Time</comment>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identificación</value>
+    <comment>ID</comment>
+  </data>
+  <data name="jueves" xml:space="preserve">
+    <value>Ju</value>
+    <comment>Thu</comment>
+  </data>
+  <data name="lunes" xml:space="preserve">
+    <value>Lu</value>
+    <comment>Mon</comment>
+  </data>
+  <data name="martes" xml:space="preserve">
+    <value>Ma</value>
+    <comment>Tue</comment>
+  </data>
+  <data name="miercoles" xml:space="preserve">
+    <value>Mi</value>
+    <comment>Wen</comment>
+  </data>
+  <data name="monto" xml:space="preserve">
+    <value>Monto</value>
+    <comment>Amount</comment>
+  </data>
+  <data name="nombreCompleto" xml:space="preserve">
+    <value>Nombre Completo</value>
+    <comment>Complete Name</comment>
+  </data>
+  <data name="numComprobante" xml:space="preserve">
+    <value>Numero Comprobante</value>
+    <comment>Ticket Number</comment>
+  </data>
+  <data name="observaciones" xml:space="preserve">
+    <value>Observaciones</value>
+    <comment>Observation</comment>
+  </data>
+  <data name="pais" xml:space="preserve">
+    <value>Pais</value>
+    <comment>Country</comment>
+  </data>
+  <data name="periodo" xml:space="preserve">
+    <value>Periodo</value>
+    <comment>Period</comment>
+  </data>
+  <data name="poliza" xml:space="preserve">
+    <value>Numero de Poliza</value>
+    <comment>Insurance number</comment>
+  </data>
+  <data name="sabado" xml:space="preserve">
+    <value>Sa</value>
+    <comment>Sat</comment>
+  </data>
+  <data name="sexo" xml:space="preserve">
+    <value>Sexo</value>
+    <comment>Sex</comment>
+  </data>
+  <data name="situacionEspecial" xml:space="preserve">
+    <value>Situacion Especial</value>
+    <comment>Special Situation</comment>
+  </data>
+  <data name="TelContactoEmergencia" xml:space="preserve">
+    <value>Tel Contacto Emergencia</value>
+    <comment>Emergency Contact Telephone</comment>
+  </data>
+  <data name="telefono" xml:space="preserve">
+    <value>Telefono</value>
+    <comment>Telephone</comment>
+  </data>
+  <data name="tipoEvento" xml:space="preserve">
+    <value>Tipo de Evento</value>
+    <comment>Event Type</comment>
+  </data>
+  <data name="tipoID" xml:space="preserve">
+    <value>Tipo Identificación</value>
+    <comment>ID type</comment>
+  </data>
+  <data name="viernes" xml:space="preserve">
+    <value>Vi</value>
+    <comment>Fri</comment>
+  </data>
+  <data name="WhatsApp" xml:space="preserve">
+    <value>Celular</value>
+    <comment>WhatsApp</comment>
+  </data>
+  <data name="imprimir" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Femenino</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+  <data name="numPC" xml:space="preserve">
+    <value>Nº de PC</value>
+  </data>
+  <data name="enviarWhatsapp" xml:space="preserve">
+    <value>Enviar WhatsApp</value>
+  </data>
+  <data name="copiar" xml:space="preserve">
+    <value>Copiar ID</value>
+  </data>
+</root>

@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="acercade" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="bienvenido" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="cerrar" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="cerrarsesion" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="iac" xml:space="preserve">
+    <value>IAC</value>
+  </data>
+  <data name="mantenimiento" xml:space="preserve">
+    <value>Maintenance</value>
+  </data>
+  <data name="Mensaje" xml:space="preserve">
+    <value>Estimado usuario, en este momento no posee acceso a este 
+modulo.
+Por favor dirijase al administrador del sistema, Gracias.</value>
+  </data>
+  <data name="procesos" xml:space="preserve">
+    <value>Processes</value>
+  </data>
+  <data name="reportes" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="seguridad" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="tablero" xml:space="preserve">
+    <value>Board</value>
+  </data>
+  <data name="changePass" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="clickHere" xml:space="preserve">
+    <value>Click here to change the password</value>
+  </data>
+  <data name="confirmNewPass" xml:space="preserve">
+    <value>Confirm New Password</value>
+  </data>
+  <data name="newPass" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="oldPass" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="passwordMessage" xml:space="preserve">
+    <value>You are using a password give by the administrator, please change the password</value>
+  </data>
+  <data name="allTxt" xml:space="preserve">
+    <value>Please fill all the values</value>
+  </data>
+  <data name="noMatch" xml:space="preserve">
+    <value>New password doesn't match</value>
+  </data>
+  <data name="passChanged" xml:space="preserve">
+    <value>Password change successfully</value>
+  </data>
+  <data name="passInvalid" xml:space="preserve">
+    <value>Old Password invalid</value>
+  </data>
+  <data name="passNoChanged" xml:space="preserve">
+    <value>Password don't changed</value>
+  </data>
+  <data name="acercade1" xml:space="preserve">
+    <value>Mejoriac is a web solution created by the Information Access Center (IAC) Costa Rica in 2018 with the help of the World Friends ICT Volunteers 2018 program (WFICTV), whose purpose is to facilitate the management of the different IACs in Central America initially, allowing the statistical automation of the use of the different rooms available to the IACs, and facilitating the submission of reports required by the National Information Society Agency (NIA). &lt;br/&gt;
+In the development of this project, the WFICTV 2018 CoreAcá team and the Costa Rica IAC participated, which are integrated by:  &lt;table class="table table-striped"&gt;
+  &lt;thead&gt;
+  &lt;tr&gt;&lt;th style="text-align: center;"&gt;CoreAcá&lt;/th&gt;
+    &lt;th style="text-align: center;"&gt;IAC Costa Rica&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td &gt;Jiyeong Jeong (Victoria) 정지영&lt;/td&gt;
+    &lt;td&gt;Rossmery Cruz Hidalgo&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Hyejin Lee (Irene) 이혜진&lt;/td&gt;
+    &lt;td&gt;Evelyn Barquero Madrigal&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Yongguk Shin (Diego) 신용국&lt;/td&gt;
+    &lt;td&gt;María José Castro Segura&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Bonghak Lee (Jorge) 이봉학&lt;/td&gt;
+    &lt;td&gt;Jose Antonio Bolaños Mejias&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+ &lt;br/&gt; For suggestions and support, please contact Jose Antonio Bolaños Mejias at: &lt;mark&gt; jbolanos@utn.ac.cr &lt;mark /&gt;</value>
+  </data>
+</root>

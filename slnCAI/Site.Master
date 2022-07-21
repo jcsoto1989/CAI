@@ -1,0 +1,347 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="slnCAI.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCNrHRQIkIi9n97OACP5nmvYwhtL715JIg",
+            authDomain: "mejoriac.firebaseapp.com",
+            databaseURL: "https://mejoriac.firebaseio.com",
+            projectId: "mejoriac",
+            storageBucket: "mejoriac.appspot.com",
+            messagingSenderId: "335580804185",
+            appId: "1:335580804185:web:0527bcd519571331fc6d48"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Information Access Center</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="Content/DataTables/datatables.min.css" />
+    <script type="text/javascript" src="Content/DataTables/datatables.min.js"></script>
+    <script src="Content/DataTables/Buttons-1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="Content/DataTables/Buttons-1.5.2/js/buttons.print.min.js"></script>
+    <link href="Content/DataTables/Buttons-1.5.2/css/buttons.bootstrap.min.css" rel="stylesheet" />
+    <script src="Content/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="Content/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="Content/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 100vh;
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #272c33;
+            height: 100%;
+        }
+
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 767px) {
+            .row.content {
+                height: auto;
+            }
+        }
+
+        .shadow3 {
+            -webkit-box-shadow: 5px 2px 4px 0px rgba(0,0,0,1);
+            -moz-box-shadow: 5px 2px 4px 0px rgba(0,0,0,1);
+            box-shadow: 5px 2px 4px 0px rgba(0,0,0,1);
+        }
+
+        .img {
+            border: 5px solid hsl(0, 0%, 40%);
+            /* #2 */
+            padding: 5px;
+            width: 75px;
+            margin: 0 auto;
+        }
+
+        .demotext {
+            font-family: Impact, Charcoal, sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            word-spacing: 0px;
+            color: #EAEAEA;
+            font-weight: 400;
+            text-decoration: none solid rgb(68, 68, 68);
+            font-style: normal;
+            font-variant: normal;
+            text-transform: none;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .bgImage {
+            background-image: url(Imagenes/bg/bandera.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: right center;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            var cambio = false;
+            $('.nav li a').each(function (index) {
+                if (this.href.trim() == window.location) {
+                    $(this).parent().addClass("active");
+                    cambio = true;
+                }
+            });
+            if (!cambio) {
+                $('.nav li:first').addClass("active");
+            }
+        });
+
+        function openMessage() {
+            $('#changePassword').modal({ backdrop: "static" });
+        }
+
+
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="bgImage">
+
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <!-- Menu -->
+        <nav class="navbar navbar-inverse visible-xs">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">IAC</a>
+                </div>
+                <!-- Menu Pantalla mas Pequeña -->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <div class="row tex-center" style="padding: 10px 0px; background-color: #343341; box-shadow: inset -3px 0px 22px #000000;">
+                        <div class="col-sm-12 tex-center">
+                            <div class="media">
+                                <div class="media-left media-middle">
+                                    <asp:Image ID="imgUsuario1" runat="server" ImageUrl="Imagenes/Avatar.jpg" CssClass="media-object img-circle img" Style="width: 75px; margin: 0 auto;" />
+                                </div>
+                                <div class="media-body" style="color: white;">
+                                    <p style="margin: 0px;">
+                                        <asp:Localize ID="Localize11" runat="server" Text="<%$Resources:site.language, bienvenido%>"></asp:Localize>
+                                    </p>
+                                    <h5 class="media-heading" style="font-weight: bold;">
+                                        <asp:Label ID="lblNombre1" runat="server" Text="Admin"></asp:Label>
+                                    </h5>
+                                    <asp:Button ID="btnCerrarSesion1" runat="server" Text="<%$Resources:site.language, cerrarsesion%>" CssClass="btn btn-danger btn-sm" Style="padding: 1px 2px;" OnClick="btnCerrarSesion_Click" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <asp:Literal ID="ltlMenuMobile" runat="server"></asp:Literal>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+
+            <div class="row content">
+                <!-- Menu Pantalla Completa -->
+                <div class="col-sm-2 sidenav hidden-xs shadow3" style="background-color: #1f242a;">
+                    <div class="demotext">
+                        <asp:Literal ID="ltlTitulo1" runat="server"></asp:Literal>
+                    </div>
+                    <div class="row tex-center" style="padding: 10px 0px; background-color: #343341; box-shadow: inset -3px 0px 22px #000000;">
+                        <div class="col-sm-12 tex-center">
+                            <div class="media">
+                                <div class="media-left media-middle">
+                                    <asp:Image ID="imgUsuario" runat="server" ImageUrl="Imagenes/Avatar.jpg" CssClass="media-object img-circle img" Style="width: 75px; margin: 0 auto;" />
+                                </div>
+                                <div class="media-body" style="color: white;">
+                                    <p style="margin: 0px;">
+                                        <asp:Localize ID="Localize10" runat="server" Text="<%$Resources:site.language, bienvenido%>"></asp:Localize>
+                                    </p>
+                                    <h5 class="media-heading" style="font-weight: bold;">
+                                        <asp:Label ID="lblNombre" runat="server" Text="Admin"></asp:Label>
+                                    </h5>
+                                    <asp:Button ID="btnCerrarSesion" runat="server" Text="<%$Resources:site.language, cerrarsesion%>" CssClass="btn btn-danger btn-sm" Style="padding: 1px 2px;" OnClick="btnCerrarSesion_Click" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="nav nav-pills nav-stacked" style="padding-top: 10px;">
+                        <asp:Literal ID="ltlMenuCompleto" runat="server"></asp:Literal>
+                    </ul>
+                    <br />
+                    <img src="Imagenes/Iac1.png" class="img img-responsive" style="width: 70%; bottom: -20px; background-color: #343341; padding: 10px 20px; position: absolute; transform: translate(-50%, -50%); left: 50%; border: 0px solid #ccc; box-shadow: inset 1px 1px 14px #000; border-radius: 35px;" />
+                </div>
+                <br />
+                <div class="col-sm-10 " style="padding-top: 8px; margin-top: -20px; padding-left: 0px; padding-right: 0px; overflow: auto; height: 100vh">
+                    <div class="container-fluid">
+                        <asp:Literal ID="ltlChangePassword" runat="server"></asp:Literal>
+                    </div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <div class="modal fade" id="mdlAcercaDe" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" style="">&times;</button>
+                            <h4 class="modal-title">
+                                <asp:Localize ID="Localize8" runat="server" Text="<%$Resources:site.language, acercade%>"></asp:Localize></h4>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="Imagenes/Iac1.png" class="img img-responsive" style="width: 50%; border: 0px;" />
+                            <hr style="height: 1px;" />
+                            <p class="text-justify">
+                                <asp:Label ID="Label7" runat="server" Text="<%$Resources:site.language, acercade1%>"></asp:Label>
+                            </p>
+                            <hr style="height: 1px;" />
+                            <p>Version: 1.0</p>
+                            <p>Derechos Reservados© 2018</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                <asp:Localize ID="Localize9" runat="server" Text="<%$Resources:site.language, cerrar%>"></asp:Localize></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="changePassword" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">
+                                <asp:Label ID="Label1" runat="server" Text="<%$Resources:site.language, changePass%>"></asp:Label></h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <p>
+                                        <asp:Label ID="Label5" runat="server" Text="<%$Resources:site.language, passwordMessage%>"></asp:Label>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <asp:Label ID="Label2" runat="server" Text="<%$Resources:site.language, oldPass%>"></asp:Label>
+                                                <asp:TextBox ID="txtOldPass" runat="server" CssClass="form-control input-sm" TextMode="Password"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <asp:Label ID="Label3" runat="server" Text="<%$Resources:site.language, newPass%>"></asp:Label>
+                                                <asp:TextBox ID="txtNewPass" runat="server" CssClass="form-control input-sm" TextMode="Password"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <asp:Label ID="Label4" runat="server" Text="<%$Resources:site.language, confirmNewPass%>"></asp:Label>
+                                                <asp:TextBox ID="txtConfirmPass" runat="server" CssClass="form-control input-sm" TextMode="Password"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <asp:Button ID="btnChangePass" runat="server" Text="<%$Resources:site.language, changePass%>" CssClass="btn btn-block btn-sm" OnClick="btnChangePass_Click" />
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <asp:Literal ID="ltlMessagePass" runat="server"></asp:Literal>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        <asp:Label ID="Label6" runat="server" Text="<%$Resources:site.language, cerrar%>"></asp:Label></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
