@@ -19,7 +19,12 @@
             document.body.innerHTML = restorePage;
         }
     </script>
+
     <style>
+        .mb-2{
+            margin-bottom:2px;
+        }
+
         .shadow {
             -webkit-box-shadow: 2px 2px 0px 0px #bbb; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
             -moz-box-shadow: 2px 2px 0px 0px #bbb; /* Firefox 3.5 - 3.6 */
@@ -37,6 +42,42 @@
             /*[horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];*/
             border: 1px solid #ddd;
             background-color: #ffffff;
+        }
+
+        .CustomComboBoxStyle .ajax__combobox_inputcontainer{
+            display: block;
+            width: 100%;
+        }
+
+        .CustomComboBoxStyle .ajax__combobox_textboxcontainer input {
+            display: block;
+            width: 100%;
+            height: 30px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            text-transform: none;
+        }
+
+        .CustomComboBoxStyle .ajax__combobox_buttoncontainer button {
+            background-color: #fff;
+            border: solid 1px #ccc;
+            margin-left: -3px;
+            margin-top: 4px;
+            height: 33px;
+            border-radius: 4px;
+            width: 30px;
+            border-left: 0px;
         }
     </style>
 </asp:Content>
@@ -73,13 +114,13 @@
                                                 <div class="col-sm-3">
                                                     <div class="form-group-sm">
                                                         <label>Evento</label>
-                                                        <asp:ListBox ID="lstEvento_lstMatricula" CssClass="form-control input-sm" SelectionMode="Multiple" runat="server" Rows="3"></asp:ListBox>
+                                                        <asp:ListBox ID="lstEvento_lstMatricula" CssClass="form-control input-sm" SelectionMode="Multiple" runat="server" Rows="6"></asp:ListBox>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
                                                     <div class="form-group-sm">
                                                         <label style="color: transparent;">.</label><br />
-                                                        <asp:Button ID="btnCrearLista_lstMatricula" CssClass="btn btn-primary btn-sm" runat="server" Text="Crear Lista" OnClick="btnCrearLista_lstMatricula_Click" />
+                                                        <asp:Button ID="btnCrearLista_lstMatricula" CssClass="btn btn-primary btn-sm mb-2" runat="server" Text="Crear Lista" OnClick="btnCrearLista_lstMatricula_Click" />
                                                         <asp:Button ID="btnCrearQR_listaMatricula" CssClass="btn btn-primary btn-sm" runat="server" Text="Generar QR" OnClick="btnCrearQR_listaMatricula_Click" />
 
                                                     </div>
@@ -176,6 +217,37 @@
                                     <div class="container-fluid shadow" id="tabAsistencia1" runat="server">
                                         <br />
                                         <div class="well well-sm shadow1">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group-sm">
+                                                        <label>Evento</label>
+                                                        <asp:DropDownList ID="ddlEvento_Asistencia" runat="server" CssClass="form-control input-sm"></asp:DropDownList>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label>Periodo</label>
+                                                        <asp:DropDownList ID="ddlPeriodo_Asistencia" runat="server" CssClass="form-control input-sm"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <asp:Button ID="btnConsultar_Asistencia" runat="server" Text="Consultar" CssClass="btn btn-sm btn-primary" OnClick="btnConsultar_Asistencia_Click" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5 text-right">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <button id="printAsistencia" onclick="printContent('divContenidoAsistencia')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="well well-sm shadow1" id="divContenidoAsistencia">
+                                            <asp:Literal ID="ltlAsistencia" runat="server"></asp:Literal>
+
                                         </div>
                                     </div>
                                 </ContentTemplate>
@@ -190,8 +262,73 @@
                                     <div class="container-fluid shadow" id="tabInventario1" runat="server">
                                         <br />
                                         <div class="well well-sm shadow1">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group-sm">
+                                                        <label>Espacio:</label>
+                                                        <asp:DropDownList ID="ddlEspacio_Inventario" runat="server" CssClass="form-control input-sm"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label>Encargado</label>
+                                                        <asp:DropDownList ID="ddlEncargado_Inventario" runat="server" CssClass="form-control input-sm"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label>Tipo de Equipo</label>
+                                                        <asp:DropDownList ID="ddlTipoEquipo_Inventario" runat="server" CssClass="form-control input-sm"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label>Estado</label>
+                                                        <asp:DropDownList ID="ddlEstado_Inventario" runat="server" CssClass="form-control input-sm"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <asp:Button runat="server" ID="btnConsultar_Inventario" Text="Consultar" CssClass="btn btn-sm btn-primary" OnClick="btnConsultar_Inventario_Click" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1 text-right">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <button id="printInventario" onclick="printContent('divContenidoInventario')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="well well-sm shadow1" id="divContenidoInventario">
+                                            <asp:Literal ID="ltlInventario" runat="server"></asp:Literal>
+                                            <div class="divFooter">
+                                                Universidad Técnica Nacional - Centro de Acceso a la Información </br> (506) 24355000 (8930) - Sitio web www.utn.ac.cr - e-mail iac@utn.ac.cr
+                                            </div>
+                                            <style>
+                                                @media screen {
+                                                    div.divFooter {
+                                                        display: none;
+                                                    }
+                                                }
+
+                                                @media print {
+                                                    div.divFooter {
+                                                        position: fixed;
+                                                        bottom: 0;
+                                                        border-top: 1px solid black;
+                                                        width: 100%;
+                                                        text-align: center;
+                                                        font-family: 'Century Gothic';
+                                                        font-size: 10pt;
+                                                        padding-top: 5px;
+                                                    }
+                                                }
+                                            </style>
                                         </div>
                                     </div>
+
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>
@@ -204,21 +341,107 @@
                                     <div class="container-fluid shadow" id="tabEventos1" runat="server">
                                         <br />
                                         <div class="well well-sm shadow1">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group-sm">
+                                                        <label>Espacio</label>
+                                                        <asp:DropDownList ID="ddlEspacio_Evento" runat="server" CssClass="form-control input-sm" OnSelectedIndexChanged="ddlEspacio_Evento_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label>Periodo</label>
+                                                        <asp:DropDownList ID="ddlPeriodo_Evento" runat="server" CssClass="form-control input-sm" OnSelectedIndexChanged="ddlEspacio_Evento_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group-sm">
+                                                        <label>Evento</label>
+                                                        <asp:ListBox ID="lstEvento_Evento" CssClass="form-control input-sm" SelectionMode="Multiple" runat="server" Rows="3"></asp:ListBox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <asp:Button ID="btnConsultar_Evento" runat="server" Text="Consultar" CssClass="btn btn-primary btn-sm" OnClick="btnConsultar_Evento_Click" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 text-right">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <button id="printEvento" onclick="printContent('divContenidoEvento')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="well well-sm shadow1" id="divContenidoEvento">
+                                            <asp:Literal ID="ltlEvento" runat="server"></asp:Literal>
                                         </div>
                                     </div>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>
                         <!-- Fin Pestaña eventos-->
-                        <!-- Pestaña Eventos -->
+                        <!-- Pestaña Estudiantes -->
                         <div id="tabEstudiante" class="tab-pane fade in">
                             <asp:UpdatePanel runat="server">
                                 <ContentTemplate>
                                     <div class="container-fluid shadow" id="tabEstudiante1" runat="server">
                                         <br />
                                         <div class="well well-sm shadow1">
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label>Tipo de Busqueda</label><br />
+                                                        <asp:DropDownList ID="ddlTipoBusqueda_Estudiante" CssClass="form-control input-sm" runat="server" OnSelectedIndexChanged="ddlTipoBusqueda_Estudiante_SelectedIndexChanged" AutoPostBack="true" style="margin-top: 9px;">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group-sm">
+                                                        <asp:Literal ID="ltlTipoBusqueda" runat="server" Text="<label>Digite el ID a consultar</label>"></asp:Literal><br />
+                                                        <ajaxToolkit:ComboBox ID="cboBusqueda_Estudiante" runat="server" CssClass="CustomComboBoxStyle" Style="display: block;" DropDownStyle="DropDownList" AutoCompleteMode="SuggestAppend"></ajaxToolkit:ComboBox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <asp:Button ID="btnConsultar_Estudiante" runat="server" Text="Consultar" CssClass="btn btn-primary btn-sm" OnClick="btnConsultar_Estudiante_Click" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 text-right" runat="server" id="divBtnImprimir">
+                                                    <div class="form-group-sm">
+                                                        <label style="color: transparent">.</label><br />
+                                                        <button id="printEstudiante" onclick="printContent('divContenidoEstudiante')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="well well-sm shadow1">
+                                        <div class="well well-sm shadow1" id="divContenidoEstudiante">
+                                            <asp:Literal ID="ltlEstudiante" runat="server"></asp:Literal>
+                                             <div class="divFooter">
+                                                Universidad Técnica Nacional - Centro de Acceso a la Información </br> (506)2435-5000 (8930) - Sitio web www.utn.ac.cr - e-mail iac@utn.ac.cr
+                                            </div>
+                                            <style>
+                                                @media screen {
+                                                    div.divFooter {
+                                                        display: none;
+                                                    }
+                                                }
+
+                                                @media print {
+                                                    div.divFooter {
+                                                        position: fixed;
+                                                        bottom: 0;
+                                                        border-top: 1px solid black;
+                                                        width: 100%;
+                                                        text-align: center;
+                                                        font-family: 'Century Gothic';
+                                                        font-size: 10pt;
+                                                        padding-top: 5px;
+                                                    }
+                                                }
+                                            </style>
                                         </div>
                                     </div>
                                 </ContentTemplate>

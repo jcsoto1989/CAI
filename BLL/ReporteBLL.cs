@@ -18,7 +18,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -27,11 +27,11 @@ namespace BLL
         {
             try
             {
-                return ReporteDAL.obtenerEspacioEvento(idEvento, idPeriodo,fecha);
+                return ReporteDAL.obtenerEspacioEvento(idEvento, idPeriodo, fecha);
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -57,7 +57,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -70,7 +70,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -83,13 +83,118 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
 
+        public static DataTable getAsistencia(int idEvento, int idPeriodo)
+        {
+            DataTable dt = new DataTable();
+            return dt;
+        }
 
+        public static DataTable getFechasCurso(int idEvento, int idPeriodo)
+        {
+            try
+            {
+                return ReporteDAL.getFechasCurso(idEvento, idPeriodo);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+
+        public static DataTable getAsistencia(int idEvento, int idPeriodo, string fecha, string ID)
+        {
+            try
+            {
+                return ReporteDAL.getAsistencia(idEvento, idPeriodo, fecha, ID);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable getInventario(string idEspacio, string idEncargado, string idTipoEquipo, string idCondicion)
+        {
+            try
+            {
+                return ReporteDAL.getInventario(idEspacio, idEncargado, idTipoEquipo, idCondicion);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static DataTable getEventosEspacios(string idEspacio, string idPeriodo)
+        {
+            try
+            {
+                return ReporteDAL.getEventosEspacios(idEspacio, idPeriodo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static DataTable getEventos(string idEvento, string idEspacio, string idPeriodo)
+        {
+            try
+            {
+                return ReporteDAL.getEventos(idEvento, idEspacio, idPeriodo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable ConsultarPersona(string tipoId, string busqueda)
+        {
+            try
+            {
+                return ReporteDAL.ConsultarPersona(tipoId, busqueda);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable obtenerPersona(string ID)
+        {
+            try
+            {
+                return ProcesosDAL.obtenerPersona(ID);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable ConsultarPersona(string busqueda)
+        {
+            try
+            {
+                return ReporteDAL.ConsultarPersona(busqueda);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
 
 
@@ -102,7 +207,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -115,7 +220,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -154,7 +259,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -167,7 +272,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -180,7 +285,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -193,7 +298,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -206,7 +311,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -216,11 +321,11 @@ namespace BLL
             try
             {
                 return ReporteDAL.obtenerParticipantes(idEvento, fecha);
-                
+
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -233,7 +338,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -246,10 +351,10 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-            
+
         }
 
         public static DataTable obtnerMesEvtDrs(string anno)
@@ -260,7 +365,7 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -273,10 +378,11 @@ namespace BLL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
+
         
     }
 }

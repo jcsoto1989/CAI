@@ -19,7 +19,7 @@ namespace Resources.Mensajes {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile el proyecto de Visual Studio.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "12.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class language {
@@ -47,7 +47,7 @@ namespace Resources.Mensajes {
         }
         
         /// <summary>
-        ///   Invalida la propiedad CurrentUICulture del subproceso actual para todas las
+        ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]

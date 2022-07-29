@@ -97,6 +97,105 @@ namespace DAL
             }
         }
 
+        public static DataTable ConsultarPersona(string ID)
+        {
+            string oSql = "select e.nombre_Evento, pe.periodo_descripcion, min(fecha) as fechaInicio,max(fecha) as fechaFinal from persona p inner join evento_inscripcion ei on p.idTipoIdentificacion = ei.idTipoId and ei.IdPersona = p.numero_identificacion inner join evento e on e.idEvento = ei.idEvento inner join periodo pe on pe.idPeriodo = ei.idPeriodo inner join evento_espacio ee on e.idEvento = ee.idEvento where p.numero_identificacion like '" + ID + "' group by nombre_Evento; ";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable ConsultarPersona(string tipoId, string busqueda)
+        {
+            string oSql = "";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable getInventario(string idEspacio, string idEncargado, string idTipoEquipo, string idCondicion)
+        {
+            string oSql = "select * from view_reporteinv where idEspacio like '%" + idEspacio + "%' and idEncargado like '%" + idEncargado + "%' and idtipoEquipo like '%" + idTipoEquipo + "%' and idcondicion like '%" + idCondicion + "%'";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable getEventos(string idEvento, string idEspacio, string idPeriodo)
+        {
+            string oSql = "select ee.idEvento,e.nombre_Evento,es.Espacio,ee.fecha,ee.horaInicio,ee.horaFinal,ee.IdEncargado, pe.nombre_Completo from evento_espacio ee inner join evento e on ee.idEvento = e.idEvento inner join espacio es on es.idEspacio = ee.idEspacio inner join periodo p on p.idPeriodo = ee.idPeriodo inner join persona pe on pe.numero_identificacion = ee.IdEncargado where ee.idEvento like '%" + idEvento + "%'  and ee.idPeriodo like '%" + idPeriodo + "%' and ee.idEspacio like '%" + idEspacio + "%'";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable getEventosEspacios(string idEspacio, string idPeriodo)
+        {
+            string oSql = "select ee.idEvento, e.nombre_Evento from evento_espacio ee inner join evento e on ee.idEvento = e.idEvento where ee.idEspacio like '%" + idEspacio + "%' and ee.idPeriodo like '%" + idPeriodo + "%' group by e.nombre_Evento order by ee.idEvento; ";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable getFechasCurso(int idEvento, int idPeriodo)
+        {
+            string oSql = "select fecha from evento_espacio where idEvento = " + idEvento + " and idPeriodo = " + idPeriodo;
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static DataTable getAsistencia(int idEvento, int idPeriodo, string fecha, string ID)
+        {
+            string oSql = "select horaIngreso,horaSalida from evento_asistencia where idEvento = " + idEvento + " and idPeriodo = " + idPeriodo + " and identificacion = " + ID + " and fecha = '" + fecha + "';";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
         /*Viaja version*/
         public static DataTable obtenerAnno()
         {

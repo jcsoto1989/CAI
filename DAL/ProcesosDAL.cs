@@ -227,6 +227,20 @@ namespace DAL
                 throw;
             }
         }
+
+        public static DataTable obtenerPersona(string ID)
+        {
+            String oSql = @"select idTipoIdentificacion,numero_identificacion,nombre_Completo,celular,telefono,email,estadoCivil,fecha_Nacimiento,direccion,sexo,pa.nombre,nombre_Completo_Emergencia,telefono_Contacto,observaciones_Persona,pe.estado,pe.idUsuario,ei.poliza,ei.fechaPoliza from persona pe inner join pais pa on pe.idPais = pa.idPais inner join evento_inscripcion ei on ei.idPersona = pe.numero_identificacion where numero_identificacion like '" + ID + "'  group by numero_identificacion order by nombre_Completo";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static DataTable getPersona(string Identificacion)
         {
             string oSql = @"SELECT              numero_identificacion,nombre_Completo,email,sexo,fecha_Nacimiento,celular,idInstitucion,idOcupacion,observaciones_Persona,estado,idTipoPersona FROM persona where numero_identificacion like '" + Identificacion + "'; ";
