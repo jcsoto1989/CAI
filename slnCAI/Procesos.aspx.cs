@@ -1273,6 +1273,7 @@ namespace slnCAI
 
                     obtenerPeriodo(1);
                     LimpiarCampos(tabPeriodo1.Controls);
+                    hdfIdPeriodo.Value = "0";
                 }
                 else
                 {
