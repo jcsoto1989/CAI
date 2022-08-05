@@ -1733,6 +1733,7 @@ namespace slnCAI
                     RefrescarCampos();
                     showMessage(ltlMessage, txt_MdEvento_NomEvento.Text + " ha sido agregado correctamente", 1);
                     LimpiarCampos(modalEvento.Controls);
+                    hdf_Md_IdEvento.Value = "0";
 
                 }
             }

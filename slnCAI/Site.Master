@@ -162,6 +162,7 @@
 <body class="bgImage">
 
     <form id="form1" runat="server">
+        <button type="submit" disabled class="none" aria-hidden="true"></button>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <!-- Menu -->
         <nav class="navbar navbar-inverse visible-xs">
