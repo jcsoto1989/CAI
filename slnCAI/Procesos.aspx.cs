@@ -76,9 +76,10 @@ namespace slnCAI
                                 break;
 
                             case "tabInscripcion1":
+                                llenarComboPersonasInscripcion();
+                                ddlPersonasInscripcion.SelectedIndex = -1;
                                 llenarComboPeriodo(ddlPeriodo_Inscrip, 1);
                                 llenarComboPeriodo(ddlPeriodo_MdlExcel, 1);
-                                llenarComboTipoIdentificacion(ddlTpPersona_Inscrip, 1);
                                 llenarComboEvento(ddlEvento_Inscrip, 1);
                                 llenarComboEvento(ddlEvento_MdlExcel, 1);
                                 if (ddlEvento_Inscrip.SelectedIndex >= 0 && ddlPeriodo_Inscrip.SelectedIndex >= 0)
@@ -150,8 +151,22 @@ namespace slnCAI
 
             }
         }
+        private void llenarComboPersonasInscripcion()
+        {
+            try
+            {
+                ddlPersonasInscripcion.DataSource = ProcesosBLL.obtenerPersona();
+                ddlPersonasInscripcion.DataTextField = "numero_identificacion";
+                ddlPersonasInscripcion.DataBind();
+                
+            }
+            catch (Exception)
+            {
 
-        
+                throw;
+            }
+        }
+
         /*******************************************************************************************/
         /**********                             Pestaña Evento-Espacio                    **********/
         /*******************************************************************************************/
@@ -893,18 +908,15 @@ namespace slnCAI
 
             LimpiarMensajes();
             ArrayList oCampos = new ArrayList();
-            oCampos.Add(ddlTpPersona_Inscrip);
-            oCampos.Add(txtId_Inscrip);
             oCampos.Add(ddlEvento_Inscrip);
             oCampos.Add(ddlPeriodo_Inscrip);
-
             try
             {
                 if (revisarCampos(oCampos) == oCampos.Count)
                 {
                     Matricula oMatricula = new Matricula();
-                    oMatricula.idTipoIdentificacion = Convert.ToInt16(ddlTpPersona_Inscrip.SelectedValue);
-                    oMatricula.idPersona = txtId_Inscrip.Text;
+                    oMatricula.idTipoIdentificacion = 1;
+                    oMatricula.idPersona = ddlPersonasInscripcion.SelectedValue.ToString();
                     oMatricula.idEvento = Convert.ToInt32(ddlEvento_Inscrip.SelectedValue);
                     oMatricula.idPeriodo = Convert.ToInt32(ddlPeriodo_Inscrip.SelectedValue);
                     oMatricula.banco = ddlBanco_Inscrip.SelectedValue;
@@ -943,7 +955,7 @@ namespace slnCAI
 
                     ArrayList oDatos = (ArrayList)Session["Usuario"];
                     ProcesosBLL.GuardarInscripcion(oMatricula, oDatos[0].ToString());
-                    showMessage(ltlMessage, txtId_Inscrip.Text + "ha sido agregado correctamente", 1);
+                    showMessage(ltlMessage, ddlPersonasInscripcion.SelectedValue.ToString() + "ha sido agregado correctamente", 1);
 
                     obtenerMatriculados(ddlEvento_Inscrip.SelectedValue, ddlPeriodo_Inscrip.SelectedValue);
                     LimpiarCampos(tabInscripcion1.Controls);
@@ -960,11 +972,6 @@ namespace slnCAI
         {
             LimpiarMensajes();
             LimpiarCampos(tabInscripcion1.Controls);
-        }
-
-        protected void ddlTpPersona_Inscrip_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cambiarMascara(mskIdPersona_Inscripcion, ddlTpPersona_Inscrip);
         }
 
         private void obtenerMatriculados(string idEventop, string idPeriodop)
@@ -1001,8 +1008,7 @@ namespace slnCAI
                 switch (e.CommandName)
                 {
                     case "Modificar":
-                        ddlTpPersona_Inscrip.SelectedValue = grvInscripcion.DataKeys[index].Values[0].ToString();
-                        txtId_Inscrip.Text = grvInscripcion.DataKeys[index].Values[1].ToString();
+                        ddlPersonasInscripcion.SelectedValue = grvInscripcion.DataKeys[index].Values[1].ToString();
                         ddlEvento_Inscrip.SelectedValue = grvInscripcion.DataKeys[index].Values[2].ToString();
                         ddlPeriodo_Inscrip.SelectedValue = grvInscripcion.DataKeys[index].Values[3].ToString();
                         ddlBanco_Inscrip.SelectedValue = grvInscripcion.DataKeys[index].Values[4].ToString();

@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Procesos.aspx.cs" Inherits="slnCAI.Procesos" Culture="es-CR" UICulture="es-CR" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+    </script>  
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -67,7 +75,7 @@
                 }
             }))
         });
-</script>
+    </script>
 
     <style>
         .custom-file-input {
@@ -588,22 +596,19 @@
                                     <div class="container-fluid shadow" id="tabInscripcion1" runat="server">
                                         <asp:Literal ID="ltlInscripcion" runat="server"></asp:Literal>
                                         <div class="row" style="padding-top: 10px;">
+
                                             <div class="col-sm-3">
                                                 <div class="form-group-sm">
                                                     <label>
-                                                        <asp:Localize ID="Localize26" runat="server" Text="<%$Resources:procesos.language, tipoId%>"></asp:Localize></label>
-                                                    <asp:DropDownList ID="ddlTpPersona_Inscrip" AutoPostBack="true" runat="server" CssClass="form-control input-sm" OnSelectedIndexChanged="ddlTpPersona_Inscrip_SelectedIndexChanged"></asp:DropDownList>
+                                                        <asp:Localize ID="Localize55" runat="server" Text="<%$Resources:procesos.language, Id%>"></asp:Localize></label>
+                                                    <asp:DropDownList CssClass="form-control js-example-basic-single" DataValueField="numero_identificacion" ID="ddlPersonasInscripcion" runat="server">
+                                                    </asp:DropDownList>
+                                                    <select class="form-control js-example-basic-single" id="ddlPrueba" name="state">
+  <option value="0" disabled="disabled" selected="selected">Seleccione una opción</option>
+</select>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group-sm">
-                                                    <label>
-                                                        <asp:Localize ID="Localize27" runat="server" Text="<%$Resources:procesos.language, Id%>"></asp:Localize></label>
-                                                    <asp:TextBox ID="txtId_Inscrip" runat="server" CssClass="form-control input-sm"></asp:TextBox>
-                                                    <ajaxToolkit:MaskedEditExtender ID="mskIdPersona_Inscripcion" Mask="9-9999-9999" TargetControlID="txtId_Inscrip" runat="server" />
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-6">
                                                 <div class="form-group-sm">
                                                     <label>
                                                         <asp:Localize ID="Localize28" runat="server" Text="<%$Resources:procesos.language, evento%>"></asp:Localize></label>
