@@ -194,6 +194,10 @@
                                                 <div class="col-sm-3">
                                                     <asp:DropDownList ID="ddlAnno_Estadistica" runat="server" CssClass="form-control input-sm" AutoPostBack="true" OnSelectedIndexChanged="ddlAnno_Estadistica_SelectedIndexChanged">
                                                         <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                                                        <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
+                                                        <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                                                        <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
+                                                        <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="col-sm-3 text-right">

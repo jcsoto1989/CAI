@@ -277,8 +277,8 @@ namespace slnCAI
                             sbImagenes.Append("<td style='text-align:center;border: 1px solid black !important;'>");
                             sbImagenes.Append("<div style='position: relative;text-align: center;'>");
                             sbImagenes.Append("<img style='width:100%;'  class='img-resposive' src='" + "data:image/png;base64," + Convert.ToBase64String(byteImage) + "'>"); //Imagen
-                            sbImagenes.Append("<div style='font-size: 12px;color: #fff!important; -webkit-text-stroke: 0px #000; position: absolute;top: 92%;left: 50%;transform: translate(-50%, -50%);mix-blend-mode: difference!important; font-weight: bolder!important; padding: 5px!important; border-radius: 15px !important; '>");
-                            sbImagenes.Append(row["IdPersona"].ToString());
+                            sbImagenes.Append("<div style='width:100%; font-size: 12px;color: #fff!important; -webkit-text-stroke: 0px #000; position: absolute;top: 92%;left: 50%;transform: translate(-50%, -50%);mix-blend-mode: difference!important; font-weight: bolder!important; padding: 5px!important; border-radius: 15px !important; '>");
+                            sbImagenes.Append(row["nombre_completo"].ToString());
                             sbImagenes.Append("</div></div></td>");
                         }
                     }

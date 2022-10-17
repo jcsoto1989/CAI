@@ -155,7 +155,7 @@ namespace slnCAI
         {
             try
             {
-                ddlPersonasInscripcion.DataSource = ProcesosBLL.obtenerPersona();
+                ddlPersonasInscripcion.DataSource = ProcesosBLL.obtenerPersonaIdentificacion();
                 ddlPersonasInscripcion.DataTextField = "numero_identificacion";
                 ddlPersonasInscripcion.DataBind();
                 
@@ -914,8 +914,9 @@ namespace slnCAI
             {
                 if (revisarCampos(oCampos) == oCampos.Count)
                 {
+
                     Matricula oMatricula = new Matricula();
-                    oMatricula.idTipoIdentificacion = 1;
+                    oMatricula.idTipoIdentificacion = Convert.ToInt32(ddlTipoId.SelectedValue);
                     oMatricula.idPersona = ddlPersonasInscripcion.SelectedValue.ToString();
                     oMatricula.idEvento = Convert.ToInt32(ddlEvento_Inscrip.SelectedValue);
                     oMatricula.idPeriodo = Convert.ToInt32(ddlPeriodo_Inscrip.SelectedValue);
@@ -956,10 +957,18 @@ namespace slnCAI
                     ArrayList oDatos = (ArrayList)Session["Usuario"];
                     ProcesosBLL.GuardarInscripcion(oMatricula, oDatos[0].ToString());
                     showMessage(ltlMessage, ddlPersonasInscripcion.SelectedValue.ToString() + "ha sido agregado correctamente", 1);
-
+                    if (rdbUsoLabSi.Checked)
+                    {
+                        oMatricula.idEvento = 7;
+                        oMatricula.monto = 0;
+                        ProcesosBLL.GuardarInscripcion(oMatricula, oDatos[0].ToString());
+                        showMessage(ltlMessage, "Se incluyó en el grupo de Uso de Labotario", 1);
+                    }
                     obtenerMatriculados(ddlEvento_Inscrip.SelectedValue, ddlPeriodo_Inscrip.SelectedValue);
                     LimpiarCampos(tabInscripcion1.Controls);
                 }
+                
+                
             }
             catch (Exception ex)
             {

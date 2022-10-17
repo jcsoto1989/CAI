@@ -4,11 +4,11 @@
 
 
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
-    </script>  
+    </script>
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -596,23 +596,39 @@
                                     <div class="container-fluid shadow" id="tabInscripcion1" runat="server">
                                         <asp:Literal ID="ltlInscripcion" runat="server"></asp:Literal>
                                         <div class="row" style="padding-top: 10px;">
-
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
+                                                <div class="form-group-sm">
+                                                    <label>
+                                                        <asp:Localize ID="Localize26" runat="server" Text="<%$Resources:procesos.language, tipoId%>"></asp:Localize></label>
+                                                    <asp:DropDownList ID="ddlTipoId" runat="server" CssClass="form-control input-sm">
+                                                        <asp:ListItem Text="Cédula" Value="1"></asp:ListItem>
+                                                        <asp:ListItem Text="Residencia" Value="2"></asp:ListItem>
+                                                        <asp:ListItem Text="Pasaporte" Value="3"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
                                                 <div class="form-group-sm">
                                                     <label>
                                                         <asp:Localize ID="Localize55" runat="server" Text="<%$Resources:procesos.language, Id%>"></asp:Localize></label>
                                                     <asp:DropDownList CssClass="form-control js-example-basic-single" DataValueField="numero_identificacion" ID="ddlPersonasInscripcion" runat="server">
                                                     </asp:DropDownList>
-                                                    <select class="form-control js-example-basic-single" id="ddlPrueba" name="state">
-  <option value="0" disabled="disabled" selected="selected">Seleccione una opción</option>
-</select>
-                                                </div>
+                                                     </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-3">
                                                 <div class="form-group-sm">
                                                     <label>
                                                         <asp:Localize ID="Localize28" runat="server" Text="<%$Resources:procesos.language, evento%>"></asp:Localize></label>
-                                                    <asp:DropDownList ID="ddlEvento_Inscrip" runat="server" CssClass="form-control input-sm" OnSelectedIndexChanged="ddlEvento_Inscrip_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                     <asp:DropDownList ID="ddlEvento_Inscrip" runat="server" CssClass="form-control input-sm" OnSelectedIndexChanged="ddlEvento_Inscrip_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group-sm">
+                                                    <label>
+                                                        Uso de Laboratorio</label>
+                                                    <br />
+                                                    <asp:RadioButton ID="rdbUsoLabSi" Text="Sí" Checked="True" GroupName="RadioGroup1" runat="server" />
+                                                    <asp:RadioButton ID="rdbUsoLabNo" Text="No"  GroupName="RadioGroup1" runat="server" />
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
@@ -819,6 +835,67 @@
                             </asp:UpdatePanel>
                         </div>
                         <!-- Pestaña Periodo - Final -->
+                         <!-- Pestaña Poliza - Inicio -->
+                        <div id="tabPoliza" class="tab-pane fade in">
+                            <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                                <ContentTemplate>
+                                    <div class="container-fluid shadow" id="Div1" runat="server">
+                                        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+                                        <div class="row" style="padding-top: 10px;">
+                                            <div class="col-sm-3">
+                                                <div class="form-group-sm">
+                                                    <label>
+                                                        <asp:Localize ID="Localize27" runat="server" Text="Póliza"></asp:Localize></label>
+                                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control input-sm"></asp:TextBox>
+                                                    <asp:HiddenField ID="HiddenField1" Value="0" runat="server" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group-sm">
+                                                    <label>
+                                                        <asp:Localize ID="Localize56" runat="server" Text="<%$Resources:procesos.language, observaciones%>"></asp:Localize></label>
+                                                    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control input-sm"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group-sm">
+                                                    <label>
+                                                        <asp:Localize ID="Localize57" runat="server" Text="<%$Resources:procesos.language, fechaFinal%>"></asp:Localize></label>
+                                                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control input-sm">
+                                                        <asp:ListItem Text="Activo" Value="true" Selected="True"></asp:ListItem>
+                                                        <asp:ListItem Text="Inactivo" Value="false"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 text-right">
+                                                <div class="form-group-sm">
+                                                    <label style="color: transparent;">.</label><br />
+                                                    <asp:Button ID="Button1" CssClass="btn btn-primary btn-sm" Text="Guardar" runat="server" OnClick="btnGuardar_Periodo_Click" />
+                                                    <asp:Button ID="Button2" CssClass="btn btn-warning btn-sm" Text="Cancelar" runat="server" OnClick="btnCancelar_Periodo_Click" />
+                                                    <asp:Button ID="Button3" CssClass="btn btn-danger btn-sm" Text="Eliminar" runat="server" OnClick="btnEliminar_Periodo_Click" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr style="margin-bottom: 10px; margin-top: 10px;" />
+                                        <asp:GridView ID="GridView1" DataKeyNames="idPeriodo" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" CssClass="table table-responsive table-bordered" runat="server" OnRowCommand="grvPeriodo_RowCommand">
+                                            <Columns>
+                                                <asp:BoundField HeaderText="Id" Visible="False" DataField="idPeriodo"></asp:BoundField>
+                                                <asp:BoundField HeaderText="Periodo" DataField="periodo_descripcion"></asp:BoundField>
+                                                <asp:BoundField HeaderText="Observaciones" DataField="observaciones"></asp:BoundField>
+                                                <asp:BoundField HeaderText="Estado" DataField="estado" Visible="false"></asp:BoundField>
+                                                <asp:TemplateField>
+                                                    <ItemTemplate>
+                                                        <asp:Button ID="btnModificar" runat="server" CommandName="Modificar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="<%$Resources:mantenimiento.language, modificar%>" CssClass="btn btn-primary btn-xs" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                            </Columns>
+                                            <HeaderStyle BackColor="#343341" Font-Bold="True" ForeColor="White" />
+                                        </asp:GridView>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </div>
+                        <!-- Pestaña Poliza - Final -->
 
                         <!-- Pestaña Tipo Evento - Inicio -->
                         <div id="tabTipoEvento" class="tab-pane fade in">

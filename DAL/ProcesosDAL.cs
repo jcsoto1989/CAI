@@ -214,10 +214,34 @@ namespace DAL
                 throw;
             }
         }
+        public static DataTable obtenerPersonaIdentificacion()
+        {
+            String oSql = @"select idTipoIdentificacion,numero_identificacion,nombre_Completo,celular,telefono,email,estadoCivil,fecha_Nacimiento,direccion,sexo,idPais,nombre_Completo_Emergencia,telefono_Contacto,observaciones_Persona,estado,idUsuario from persona where estado = 1 order by numero_identificacion ASC";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public static DataTable obtenerPersona(int TipoID, string ID, int estado)
         {
             String oSql = @"select idTipoIdentificacion,numero_identificacion,nombre_Completo,celular,telefono,email,estadoCivil,fecha_Nacimiento,direccion,sexo,idPais,nombre_Completo_Emergencia,telefono_Contacto,observaciones_Persona,estado,idUsuario from persona where estado = " + estado + " and idTipoIdentificacion = " + TipoID + " and numero_identificacion like '" + ID + "'  order by nombre_Completo";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static DataTable obtenerPersonaPorId(string id, int estado)
+        {
+            String oSql = @"select idTipoIdentificacion,numero_identificacion,nombre_Completo,celular,telefono,email,estadoCivil,fecha_Nacimiento,direccion,sexo,idPais,nombre_Completo_Emergencia,telefono_Contacto,observaciones_Persona,estado,idUsuario from persona where numero_identificacion = '" + id + "'  order by nombre_Completo";
             try
             {
                 return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);

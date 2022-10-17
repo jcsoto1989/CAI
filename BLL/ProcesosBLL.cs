@@ -110,6 +110,18 @@ namespace BLL
                 throw;
             }
         }
+        public static DataTable obtenerPersonaIdentificacion()
+        {
+            try
+            {
+                return ProcesosDAL.obtenerPersonaIdentificacion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public static DataTable obtenerPersona(int TipoID, string ID, int estado)
         {
             try
@@ -211,6 +223,18 @@ namespace BLL
             catch (Exception)
             {
                 
+                throw;
+            }
+        }
+        public static DataTable getPersona( string ID)
+        {
+            try
+            {
+                return ProcesosDAL.getPersona(ID);
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
