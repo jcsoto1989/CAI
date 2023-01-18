@@ -13,6 +13,7 @@ using System.Text;
 using System.Data.OleDb;
 using System.IO;
 using System.Windows;
+using System.Windows.Shell;
 
 namespace slnCAI
 {
@@ -2086,6 +2087,21 @@ namespace slnCAI
             llenarGridPersona();
         }
 
-       
+        protected void ddlPersonasInscripcion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Obtener ultimo registro de inscripción para extrer póliza
+            List<Matricula> oListaMatriculaAnterior = new List<Matricula>();
+            Matricula oMatricula = new Matricula();
+                DataSet ds = ProcesosBLL.obtenerUltimaMatricula(Convert.ToInt32(ddlTipoId.SelectedValue), ddlPersonasInscripcion.SelectedValue.ToString());
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                oListaMatriculaAnterior.Add(new Matricula { idPersona = Convert.ToString(dr["IdPersona"]), poliza = Convert.ToString(dr["poliza"]), fechaPoliza = Convert.ToString(dr["fechaPoliza"]) });
+            }
+            if (ds.Tables[0].Rows.Count > 0) { 
+            oMatricula = oListaMatriculaAnterior.Find(x => x.idPersona == ddlPersonasInscripcion.SelectedValue);
+            txtNumPoliza_Incrip.Text = oMatricula.poliza;
+            txtFechaPoliza.Text = Convert.ToDateTime(oMatricula.fechaPoliza).AddYears(1).ToString("yyyy-MM-dd");
+            }
+        }
     }
 }

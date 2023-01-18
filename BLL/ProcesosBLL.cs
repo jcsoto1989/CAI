@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DAL;
 using Entidad;
 using System.Collections;
+using System.Management.Instrumentation;
 
 namespace BLL
 {
@@ -206,6 +207,18 @@ namespace BLL
             try
             {
                 return ProcesosDAL.obtenerMatriculados(idEvento, idPeriodo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static DataSet obtenerUltimaMatricula(int pTipoId, string pIdentificacion)
+        {
+            try
+            {
+                return ProcesosDAL.obtenerUltimaMatricula(pTipoId, pIdentificacion);
             }
             catch (Exception)
             {

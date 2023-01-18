@@ -611,7 +611,7 @@
                                                 <div class="form-group-sm">
                                                     <label>
                                                         <asp:Localize ID="Localize55" runat="server" Text="<%$Resources:procesos.language, Id%>"></asp:Localize></label>
-                                                    <asp:DropDownList CssClass="form-control js-example-basic-single" DataValueField="numero_identificacion" ID="ddlPersonasInscripcion" runat="server">
+                                                    <asp:DropDownList AutoPostBack="true" CssClass="form-control js-example-basic-single" DataValueField="numero_identificacion" ID="ddlPersonasInscripcion" runat="server" OnSelectedIndexChanged="ddlPersonasInscripcion_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                      </div>
                                             </div>

@@ -387,6 +387,20 @@ namespace DAL
                 throw;
             }
         }
+        public static DataSet obtenerUltimaMatricula(int pTipoId, string pIdentificacion)
+        {
+           
+            string oSql = "select * from evento_inscripcion WHERE IdTipoId = " + pTipoId + " AND IdPersona = " +"'" +pIdentificacion+"'" + " ORDER BY fechaPoliza  DESC LIMIT 1";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataSet(oSql); 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public static DataTable obtenerMatriculados(int idEvento, int idPeriodo)
         {
