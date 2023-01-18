@@ -960,6 +960,7 @@ namespace slnCAI
                     if (rdbUsoLabSi.Checked)
                     {
                         oMatricula.idEvento = 7;
+                        oMatricula.idPeriodo = 11;
                         oMatricula.monto = 0;
                         ProcesosBLL.GuardarInscripcion(oMatricula, oDatos[0].ToString());
                         showMessage(ltlMessage, "Se incluyó en el grupo de Uso de Labotario", 1);
