@@ -14,7 +14,7 @@ namespace DAL
 
         public static DataTable obtenerPersonasIncritas(int idEvento, int idPeriodo)
         {
-            string oSql = "select ei.idTipoId, ei.IdPersona, p.nombre_Completo, p.celular from persona p inner join evento_inscripcion ei on p.idTipoIdentificacion = ei.idTipoId and p.numero_identificacion = ei.IdPersona where ei.idEvento = " + idEvento + " and ei.idPeriodo = " + idPeriodo + " order by nombre_Completo;";
+            string oSql = "select ei.idTipoId, ei.IdPersona, p.nombre_Completo, p.celular, p.fecha_Nacimiento from persona p inner join evento_inscripcion ei on p.idTipoIdentificacion = ei.idTipoId and p.numero_identificacion = ei.IdPersona where ei.idEvento = " + idEvento + " and ei.idPeriodo = " + idPeriodo + " order by nombre_Completo;";
             try
             {
                 return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);

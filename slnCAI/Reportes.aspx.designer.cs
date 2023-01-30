@@ -96,6 +96,15 @@ namespace slnCAI
         protected global::System.Web.UI.WebControls.Button btnCrearQR_listaMatricula;
 
         /// <summary>
+        /// Control btnCrearQR_listaMatriculaCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCrearQR_listaMatriculaCedula;
+
+        /// <summary>
         /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>

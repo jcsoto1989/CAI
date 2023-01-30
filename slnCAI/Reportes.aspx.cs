@@ -123,7 +123,7 @@ namespace slnCAI
 
         protected void btnCrearQR_listaMatricula_Click(object sender, EventArgs e)
         {
-            GenerarQR();
+            GenerarQR(false);
         }
 
         private void GenerarBoletaAsistencia()
@@ -156,6 +156,9 @@ namespace slnCAI
                     encabezadoTable.Append("<th style='width: 100px; text-align: center; color:#fff !important;'>");
                     encabezadoTable.Append("Nº Teléfono");
                     encabezadoTable.Append("</th>");
+                    encabezadoTable.Append("<th style='width: 100px; text-align: center; color:#fff !important;'>");
+                    encabezadoTable.Append("Edad");
+                    encabezadoTable.Append("</th>");
                     encabezadoTable.Append("<th style='width: 250px; text-align: center; color:#fff !important;'>");
                     encabezadoTable.Append("Firma y Hora de Entrada");
                     encabezadoTable.Append("</th>");
@@ -171,6 +174,9 @@ namespace slnCAI
 
                     foreach (DataRow row in dtMatriculados.Rows)
                     {
+                        string nacimiento = Convert.ToDateTime(row["fecha_Nacimiento"]).ToString("yyyy,MM,dd");
+                        DateTime nac = Convert.ToDateTime(nacimiento);
+                        int edad = DateTime.Today.AddTicks(-nac.Ticks).Year - 1;
                         if (count % 2 == 0)
                         {
                             table.Append("<tr style='height:30px;  text-align:center; border: 1px solid black !important;'>");
@@ -182,6 +188,8 @@ namespace slnCAI
                             table.Append(row["nombre_Completo"].ToString());
                             table.Append("</td><td style='border: 1px solid black !important;'>");
                             table.Append(row["celular"].ToString());
+                            table.Append("</td><td style='border: 1px solid black !important;'>");
+                            table.Append(edad);
                             table.Append("</td><td style='border: 1px solid black !important;'></td>");
                             table.Append("<td style='border: 1px solid black !important;'></td>");
                             table.Append("</tr>");
@@ -199,6 +207,8 @@ namespace slnCAI
                             table.Append(row["nombre_Completo"].ToString());
                             table.Append("</td><td style='border: 1px solid black !important;'>");
                             table.Append(row["celular"].ToString());
+                            table.Append("</td><td style='border: 1px solid black !important;'>");
+                            table.Append(edad);
                             table.Append("</td><td style='border: 1px solid black !important;'></td>");
                             table.Append("<td style='border: 1px solid black !important;'></td>");
                             table.Append("</tr>");
@@ -228,7 +238,7 @@ namespace slnCAI
 
         }
 
-        private void GenerarQR()
+        private void GenerarQR(bool soloCedula)
         {
             List<System.Web.UI.WebControls.Image> lstImage = new List<System.Web.UI.WebControls.Image>();
 
@@ -258,7 +268,15 @@ namespace slnCAI
 
                     foreach (DataRow row in dtMatriculados.Rows)
                     {
-                        QRCodeData qrCodeData = qrGenerator.CreateQrCode(row["idTipoId"].ToString() + ";" + row["IdPersona"].ToString() + ";" + idEvento + ";" + idPeriodo, QRCodeGenerator.ECCLevel.Q);
+                        string cadenaQr = "";
+                        if(soloCedula == false) {
+                         cadenaQr = row["idTipoId"].ToString() + ";" + row["IdPersona"].ToString() + ";" + idEvento + ";" + idPeriodo;
+                        }
+                        else
+                        {
+                            cadenaQr = row["IdPersona"].ToString();
+                        }
+                        QRCodeData qrCodeData = qrGenerator.CreateQrCode(cadenaQr, QRCodeGenerator.ECCLevel.Q);
                         QRCode qrCode = new QRCode(qrCodeData);
 
                         Bitmap qrCodeImage = qrCode.GetGraphic(30);
@@ -277,8 +295,8 @@ namespace slnCAI
                             sbImagenes.Append("<td style='text-align:center;border: 1px solid black !important;'>");
                             sbImagenes.Append("<div style='position: relative;text-align: center;'>");
                             sbImagenes.Append("<img style='width:100%;'  class='img-resposive' src='" + "data:image/png;base64," + Convert.ToBase64String(byteImage) + "'>"); //Imagen
-                            sbImagenes.Append("<div style='width:100%; font-size: 10px;color: #fff!important; -webkit-text-stroke: 0px #000; position: absolute;top: 92%;left: 50%;transform: translate(-50%, -50%);mix-blend-mode: difference!important; font-weight: bolder!important; padding: 5px!important; border-radius: 15px !important; '>");
-                            sbImagenes.Append(row["nombre_completo"].ToString().Substring(0, 17));
+                            sbImagenes.Append("<div style='width:100%; font-size: 11px;color: #fff!important; -webkit-text-stroke: 0px #000; position: absolute;top: 92%;left: 50%;transform: translate(-50%, -50%);mix-blend-mode: difference!important; font-weight: bolder!important; padding: 5px!important; border-radius: 15px !important; '>");
+                            sbImagenes.Append(row["nombre_completo"].ToString().Substring(0, 15));
                             sbImagenes.Append("</div></div></td>");
                         }
                     }
@@ -1442,6 +1460,9 @@ namespace slnCAI
 
         }
 
-
+        protected void btnCrearQR_listaMatriculaCedula_Click(object sender, EventArgs e)
+        {
+            GenerarQR(true);
+        }
     }
 }

@@ -122,7 +122,7 @@
                                                         <label style="color: transparent;">.</label><br />
                                                         <asp:Button ID="btnCrearLista_lstMatricula" CssClass="btn btn-primary btn-sm mb-2" runat="server" Text="Crear Lista" OnClick="btnCrearLista_lstMatricula_Click" />
                                                         <asp:Button ID="btnCrearQR_listaMatricula" CssClass="btn btn-primary btn-sm" runat="server" Text="Generar QR" OnClick="btnCrearQR_listaMatricula_Click" />
-
+                                                        <asp:Button ID="btnCrearQR_listaMatriculaCedula" CssClass="btn btn-primary btn-sm" runat="server" Text="QR Gafete" OnClick="btnCrearQR_listaMatriculaCedula_Click" />
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4" style="border-left-style: dashed; border-right-style: dashed; padding-left: 10px;">
