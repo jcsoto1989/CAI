@@ -2089,6 +2089,8 @@ namespace slnCAI
 
         protected void ddlPersonasInscripcion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtNumPoliza_Incrip.Text = "";
+            txtFechaPoliza.Text = "";
             //Obtener ultimo registro de inscripción para extrer póliza
             List<Matricula> oListaMatriculaAnterior = new List<Matricula>();
             Matricula oMatricula = new Matricula();
