@@ -159,6 +159,9 @@ namespace slnCAI
                     encabezadoTable.Append("<th style='width: 100px; text-align: center; color:#fff !important;'>");
                     encabezadoTable.Append("Edad");
                     encabezadoTable.Append("</th>");
+                    encabezadoTable.Append("<th style='width: 100px; text-align: center; color:#fff !important;'>");
+                    encabezadoTable.Append("Cumpleaños");
+                    encabezadoTable.Append("</th>");
                     encabezadoTable.Append("<th style='width: 250px; text-align: center; color:#fff !important;'>");
                     encabezadoTable.Append("Firma y Hora de Entrada");
                     encabezadoTable.Append("</th>");
@@ -175,6 +178,7 @@ namespace slnCAI
                     foreach (DataRow row in dtMatriculados.Rows)
                     {
                         string nacimiento = Convert.ToDateTime(row["fecha_Nacimiento"]).ToString("yyyy,MM,dd");
+                        string mesNacimiento = Convert.ToDateTime(row["fecha_Nacimiento"]).ToString("dd MMMM");
                         DateTime nac = Convert.ToDateTime(nacimiento);
                         int edad = DateTime.Today.AddTicks(-nac.Ticks).Year - 1;
                         if (count % 2 == 0)
@@ -190,6 +194,8 @@ namespace slnCAI
                             table.Append(row["celular"].ToString());
                             table.Append("</td><td style='border: 1px solid black !important;'>");
                             table.Append(edad);
+                            table.Append("</td><td style='border: 1px solid black !important;'>");
+                            table.Append(mesNacimiento);
                             table.Append("</td><td style='border: 1px solid black !important;'></td>");
                             table.Append("<td style='border: 1px solid black !important;'></td>");
                             table.Append("</tr>");
@@ -208,7 +214,9 @@ namespace slnCAI
                             table.Append("</td><td style='border: 1px solid black !important;'>");
                             table.Append(row["celular"].ToString());
                             table.Append("</td><td style='border: 1px solid black !important;'>");
-                            table.Append(edad);
+                            table.Append(edad); 
+                            table.Append("</td><td style='border: 1px solid black !important;'>");
+                            table.Append(mesNacimiento);
                             table.Append("</td><td style='border: 1px solid black !important;'></td>");
                             table.Append("<td style='border: 1px solid black !important;'></td>");
                             table.Append("</tr>");
