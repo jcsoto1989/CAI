@@ -123,7 +123,7 @@ namespace slnCAI
                                     idPeriodo = 0;
                                 }
 
-                                llenarComboFechaAsistencias(idEvento,idPeriodo);
+                                llenarComboFechaAsistencias(idEvento, idPeriodo);
 
                                 cambiarMascara(mskIdPersona_Asistencia, ddlTipoIdentificacion_Asistencia);
                                 txtNumPC_MaskedEditExtender.Mask = "99";
@@ -159,7 +159,7 @@ namespace slnCAI
                 ddlPersonasInscripcion.DataSource = ProcesosBLL.obtenerPersonaIdentificacion();
                 ddlPersonasInscripcion.DataTextField = "numero_identificacion";
                 ddlPersonasInscripcion.DataBind();
-                
+
             }
             catch (Exception)
             {
@@ -969,8 +969,8 @@ namespace slnCAI
                     obtenerMatriculados(ddlEvento_Inscrip.SelectedValue, ddlPeriodo_Inscrip.SelectedValue);
                     LimpiarCampos(tabInscripcion1.Controls);
                 }
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -1149,8 +1149,8 @@ namespace slnCAI
                     string pais = "Costa Rica";
                     try
                     {
-                         idPais = Convert.ToInt32(ddlPais_Persona.Items.FindByText(oRow[8].ToString()).Value);
-                         pais = ddlPais_Persona.Items.FindByText(oRow[8].ToString()).Text;
+                        idPais = Convert.ToInt32(ddlPais_Persona.Items.FindByText(oRow[8].ToString()).Value);
+                        pais = ddlPais_Persona.Items.FindByText(oRow[8].ToString()).Text;
                     }
                     catch (Exception)
                     {
@@ -1158,7 +1158,7 @@ namespace slnCAI
                         pais = ddlPais_Persona.Items.FindByText("Costa Rica").Text;
                     }
 
-                    String[] row = { tipoID, ID, nombreCompleto, sexo, celular, telefono, email, fechaNacimiento, pais};
+                    String[] row = { tipoID, ID, nombreCompleto, sexo, celular, telefono, email, fechaNacimiento, pais };
                     dt.Rows.Add(row);
                     grvEstudiantesExcel.DataSource = dt;
                     ViewState["dtEstudiantesExcel"] = dt;
@@ -1175,7 +1175,7 @@ namespace slnCAI
         /*******************************************************************************************/
         /**********                               Modal Excel                             **********/
         /*******************************************************************************************/
-        
+
         protected void btnGuardar_MdlExcel_Click(object sender, EventArgs e)
         {
             ArrayList oLstPersona = new ArrayList();
@@ -1230,7 +1230,7 @@ namespace slnCAI
                     oMatricula.idPersona = oPersona.idPersona;
                     oLstMatricula.Add(oMatricula);
                 }
-                
+
                 try
                 {
                     int registro = ProcesosBLL.guardarExcel(oLstPersona, oLstMatricula, "");
@@ -2094,16 +2094,18 @@ namespace slnCAI
             //Obtener ultimo registro de inscripción para extrer póliza
             List<Matricula> oListaMatriculaAnterior = new List<Matricula>();
             Matricula oMatricula = new Matricula();
-                DataSet ds = ProcesosBLL.obtenerUltimaMatricula(Convert.ToInt32(ddlTipoId.SelectedValue), ddlPersonasInscripcion.SelectedValue.ToString());
+            DataSet ds = ProcesosBLL.obtenerUltimaMatricula(Convert.ToInt32(ddlTipoId.SelectedValue), ddlPersonasInscripcion.SelectedValue.ToString());
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 oListaMatriculaAnterior.Add(new Matricula { idPersona = Convert.ToString(dr["IdPersona"]), poliza = Convert.ToString(dr["poliza"]), fechaPoliza = Convert.ToString(dr["fechaPoliza"]) });
             }
-            if (ds.Tables[0].Rows.Count > 0) { 
-            oMatricula = oListaMatriculaAnterior.Find(x => x.idPersona == ddlPersonasInscripcion.SelectedValue);
-            txtNumPoliza_Incrip.Text = oMatricula.poliza;
-            txtFechaPoliza.Text = Convert.ToDateTime(oMatricula.fechaPoliza).AddYears(1).ToString("yyyy-MM-dd");
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                oMatricula = oListaMatriculaAnterior.Find(x => x.idPersona == ddlPersonasInscripcion.SelectedValue);
+                txtNumPoliza_Incrip.Text = oMatricula.poliza;
+                txtFechaPoliza.Text = Convert.ToDateTime(oMatricula.fechaPoliza).AddYears(1).ToString("yyyy-MM-dd");
             }
         }
     }
+
 }

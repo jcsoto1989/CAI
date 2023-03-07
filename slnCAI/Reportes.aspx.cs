@@ -18,6 +18,7 @@ using System.Web.Script.Services;
 using QRCoder;
 using System.Drawing.Imaging;
 using AjaxControlToolkit;
+using Entidad;
 
 namespace slnCAI
 {
@@ -270,7 +271,7 @@ namespace slnCAI
                     sbImagenes.Append("</td></tr>");
 
                     int idEvento = Convert.ToInt32(item.Value);
-                    DataTable dtMatriculados = ReporteBLL.obtenerPersonasIncritas(idEvento, idPeriodo);
+                    DataTable dtMatriculados = ReporteBLL.obtenerPersonasIncritas(20, 8);
                     lstImagenes = new ArrayList();
                     sbImagenes.Append("<tr>");
 
@@ -304,7 +305,7 @@ namespace slnCAI
                             sbImagenes.Append("<div style='position: relative;text-align: center;'>");
                             sbImagenes.Append("<img style='width:100%;'  class='img-resposive' src='" + "data:image/png;base64," + Convert.ToBase64String(byteImage) + "'>"); //Imagen
                             sbImagenes.Append("<div style='width:100%; font-size: 11px;color: #fff!important; -webkit-text-stroke: 0px #000; position: absolute;top: 92%;left: 50%;transform: translate(-50%, -50%);mix-blend-mode: difference!important; font-weight: bolder!important; padding: 5px!important; border-radius: 15px !important; '>");
-                            sbImagenes.Append(row["nombre_completo"].ToString().Substring(0, 15));
+                            sbImagenes.Append(row["nombre_completo"].ToString().Substring(0, row["nombre_completo"].ToString().IndexOf(' ')));
                             sbImagenes.Append("</div></div></td>");
                         }
                     }
