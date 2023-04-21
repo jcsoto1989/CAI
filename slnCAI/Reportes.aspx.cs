@@ -271,7 +271,7 @@ namespace slnCAI
                     sbImagenes.Append("</td></tr>");
 
                     int idEvento = Convert.ToInt32(item.Value);
-                    DataTable dtMatriculados = ReporteBLL.obtenerPersonasIncritas(20, 8);
+                    DataTable dtMatriculados = ReporteBLL.obtenerPersonasIncritas(idEvento, idPeriodo);
                     lstImagenes = new ArrayList();
                     sbImagenes.Append("<tr>");
 
