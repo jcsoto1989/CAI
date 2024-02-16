@@ -961,7 +961,7 @@ namespace slnCAI
                     if (rdbUsoLabSi.Checked)
                     {
                         oMatricula.idEvento = 7;
-                        oMatricula.idPeriodo = 11;
+                        oMatricula.idPeriodo = 16;
                         oMatricula.monto = 0;
                         ProcesosBLL.GuardarInscripcion(oMatricula, oDatos[0].ToString());
                         showMessage(ltlMessage, "Se incluyó en el grupo de Uso de Labotario", 1);
@@ -2068,7 +2068,7 @@ namespace slnCAI
                         break;
 
                     case "3":
-                        msk.Mask = "?????????";
+                        msk.Mask = "???????????????";
                         break;
                     default:
                         break;
@@ -2103,7 +2103,9 @@ namespace slnCAI
             {
                 oMatricula = oListaMatriculaAnterior.Find(x => x.idPersona == ddlPersonasInscripcion.SelectedValue);
                 txtNumPoliza_Incrip.Text = oMatricula.poliza;
-                txtFechaPoliza.Text = Convert.ToDateTime(oMatricula.fechaPoliza).AddYears(1).ToString("yyyy-MM-dd");
+                txtFechaPoliza.Text = Convert.ToDateTime(oMatricula.fechaPoliza).ToString("yyyy-MM-dd");
+                txtFechaVencimientoPoliza.Text = Convert.ToDateTime(oMatricula.fechaPoliza).AddYears(1).ToString("yyyy-MM-dd");
+                //Fecha vencimiento póliza - Agregar
             }
         }
     }

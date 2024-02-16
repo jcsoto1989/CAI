@@ -933,6 +933,24 @@ namespace slnCAI
         protected global::System.Web.UI.WebControls.TextBox txtFechaPoliza;
 
         /// <summary>
+        /// Control Localize58.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize Localize58;
+
+        /// <summary>
+        /// Control txtFechaVencimientoPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaVencimientoPoliza;
+
+        /// <summary>
         /// Control Localize36.
         /// </summary>
         /// <remarks>

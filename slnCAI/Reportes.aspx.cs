@@ -60,14 +60,14 @@ namespace slnCAI
                         switch (idTab)
                         {
                             case "tabListaMatricula1":
-                                llenarComboPeriodo(ddlPeriodo_lstMatricula, 1);
-                                llenarComboEvento(lstEvento_lstMatricula, 1);
+                                llenarComboPeriodo(ddlPeriodo_lstMatricula, 2);
+                                llenarComboEvento(lstEvento_lstMatricula, 0);
                                 break;
                             case "tabEstadistica1":
                                 EstadisticaUsoespacios();
                                 break;
                             case "tabAsistencia1":
-                                llenarComboPeriodo(ddlPeriodo_Asistencia, 1);
+                                llenarComboPeriodo(ddlPeriodo_Asistencia, 2);
                                 llenarComboEvento(ddlEvento_Asistencia, 1);
                                 break;
 
@@ -79,7 +79,7 @@ namespace slnCAI
                                 break;
 
                             case "tabEvento1":
-                                llenarComboPeriodo(ddlPeriodo_Evento, 1);
+                                llenarComboPeriodo(ddlPeriodo_Evento, 2);
                                 llenarComboEspacio(ddlEspacio_Evento);
                                 llenarComboEvento(lstEvento_Evento, 1);
                                 break;
@@ -305,7 +305,7 @@ namespace slnCAI
                             sbImagenes.Append("<div style='position: relative;text-align: center;'>");
                             sbImagenes.Append("<img style='width:100%;'  class='img-resposive' src='" + "data:image/png;base64," + Convert.ToBase64String(byteImage) + "'>"); //Imagen
                             sbImagenes.Append("<div style='width:100%; font-size: 11px;color: #fff!important; -webkit-text-stroke: 0px #000; position: absolute;top: 92%;left: 50%;transform: translate(-50%, -50%);mix-blend-mode: difference!important; font-weight: bolder!important; padding: 5px!important; border-radius: 15px !important; '>");
-                            sbImagenes.Append(row["nombre_completo"].ToString().Substring(0, row["nombre_completo"].ToString().IndexOf(' ')));
+                            sbImagenes.Append(row["nombre_completo"].ToString().Substring(0, row["nombre_completo"].ToString().IndexOf(' ')) + " - " + row["IdPersona"]);
                             sbImagenes.Append("</div></div></td>");
                         }
                     }
@@ -536,6 +536,9 @@ namespace slnCAI
             sbTablaAsistencia.Append("<table style='width:100%; border: 1px solid black !important; border-collapse: collapse !important; font-family: Century Gothic;text-align: center;'>");
             sbTablaAsistencia.Append("<tr>");
             sbTablaAsistencia.Append("<th style='border: 1px solid black !important; background-color: #002f6b !important; color:#fff !important;padding: 1px; font-size: 9pt; text-align: center;'>");
+            sbTablaAsistencia.Append("Identificación");
+            sbTablaAsistencia.Append("</th>");
+            sbTablaAsistencia.Append("<th style='border: 1px solid black !important; background-color: #002f6b !important; color:#fff !important;padding: 1px; font-size: 9pt; text-align: center;'>");
             sbTablaAsistencia.Append("Nombre Completo");
             sbTablaAsistencia.Append("</th>");
 
@@ -558,6 +561,9 @@ namespace slnCAI
                     sbTablaAsistencia.Append("<tr style='border: 1px solid black !important;padding: 1px; font-size: 9pt;'>");
                 }
 
+                sbTablaAsistencia.Append("<td style='border: 1px solid black !important;padding: 1px; font-size: 9pt;' >");
+                sbTablaAsistencia.Append(oRowParticipante["IdPersona"].ToString());
+                sbTablaAsistencia.Append("</td>");
                 sbTablaAsistencia.Append("<td style='border: 1px solid black !important;padding: 1px; font-size: 9pt;' >");
                 sbTablaAsistencia.Append(oRowParticipante["nombre_Completo"].ToString());
                 sbTablaAsistencia.Append("</td>");

@@ -531,6 +531,7 @@
     <Content Include="App_GlobalResources\procesos.language.en-us.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>procesos.language.en-us.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -543,6 +544,7 @@
     <Content Include="App_GlobalResources\seguridad.language.en-us.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>seguridad.language.en-us.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

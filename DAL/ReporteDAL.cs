@@ -85,7 +85,7 @@ namespace DAL
 
         public static DataTable getUsoMensualFechas(string mes, string anno, string idEspacio, string idEvento)
         {
-            string oSql = "select ea.fecha, min(ea.horaIngreso) as 'HoraEntrada', max(ea.horaSalida) as 'HoraSalida', COUNT(IF(p.sexo = 'male', 1, NULL)) 'H', COUNT(IF(p.sexo = 'female', 1, NULL)) 'M', count(p.sexo) as 'Total' from evento_asistencia ea inner join evento e on e.idEvento = ea.idEvento inner join evento_espacio ee on ee.idEvento = ea.idEvento and ee.idPeriodo = ea.idPeriodo and ee.idEvento = e.idEvento and ea.fecha = ee.fecha inner join persona p on p.idTipoIdentificacion = ea.idTipoIdentificacion and p.numero_identificacion = ea.identificacion WHERE month(ea.fecha) = " + mes + " and e.idEvento = " + idEvento + " and year(ea.fecha) = " + anno + " and ee.idEspacio = " + idEspacio + " group by ea.fecha;";
+            string oSql = "select ea.fecha, min(ea.horaIngreso) as 'HoraEntrada', max(ea.horaSalida) as 'HoraSalida', COUNT(IF(p.sexo = 'male', 1, NULL)) 'H', COUNT(IF(p.sexo = 'female', 1, NULL)) 'M', count(p.sexo) as 'Total' from evento_asistencia ea inner join evento e on e.idEvento = ea.idEvento inner join evento_espacio ee on ee.idEvento = ea.idEvento and ee.idPeriodo = ea.idPeriodo and ee.idEvento = e.idEvento and ea.fecha = ee.fecha inner join persona p on p.numero_identificacion = ea.identificacion WHERE month(ea.fecha) = " + mes + " and e.idEvento = " + idEvento + " and year(ea.fecha) = " + anno + " and ee.idEspacio = " + idEspacio + " group by ea.fecha;";
             try
             {
                 return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);

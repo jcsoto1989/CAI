@@ -214,7 +214,7 @@
     <comment>Complete Name</comment>
   </data>
   <data name="numComprobante" xml:space="preserve">
-    <value>Numero Comprobante</value>
+    <value>N° Comprobante</value>
     <comment>Ticket Number</comment>
   </data>
   <data name="observaciones" xml:space="preserve">

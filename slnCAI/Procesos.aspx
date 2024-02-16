@@ -651,17 +651,17 @@
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-1">
                                                 <div class="form-group-sm">
                                                     <label>
                                                         <asp:Localize ID="Localize31" runat="server" Text="<%$Resources:procesos.language, monto%>"></asp:Localize></label>
                                                     <asp:TextBox ID="txtMonto_Inscrip" runat="server" CssClass="form-control input-sm"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-1">
                                                 <div class="form-group-sm">
                                                     <label>
-                                                        <asp:Localize ID="Localize32" runat="server" Text="<%$Resources:procesos.language, numComprobante%>"></asp:Localize></label>
+                                                        <asp:Localize ID="Localize32" runat="server" Text="Comprobante"></asp:Localize></label>
                                                     <asp:TextBox ID="txtNumComprobante_Inscrip" runat="server" CssClass="form-control input-sm"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -684,6 +684,13 @@
                                                     <label>
                                                         <asp:Localize ID="Localize35" runat="server" Text="<%$Resources:procesos.language, fecha%>"></asp:Localize></label>
                                                     <asp:TextBox ID="txtFechaPoliza" TextMode="Date" runat="server" CssClass="form-control input-sm"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group-sm">
+                                                    <label>
+                                                        <asp:Localize ID="Localize58" runat="server" Text="Fecha Exp. Póliza"></asp:Localize></label>
+                                                    <asp:TextBox ID="txtFechaVencimientoPoliza" TextMode="Date" Enabled="false" runat="server" CssClass="form-control input-sm"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>

@@ -111,7 +111,7 @@
                                                         <asp:DropDownList ID="ddlPeriodo_lstMatricula" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-4">
                                                     <div class="form-group-sm">
                                                         <label>Evento</label>
                                                         <asp:ListBox ID="lstEvento_lstMatricula" CssClass="form-control input-sm" SelectionMode="Multiple" runat="server" Rows="6"></asp:ListBox>
@@ -125,7 +125,7 @@
                                                         <asp:Button ID="btnCrearQR_listaMatriculaCedula" CssClass="btn btn-primary btn-sm" runat="server" Text="QR Gafete" OnClick="btnCrearQR_listaMatriculaCedula_Click" />
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4" style="border-left-style: dashed; border-right-style: dashed; padding-left: 10px;">
+                                                <div class="col-sm-3" style="border-left-style: dashed; border-right-style: dashed; padding-left: 10px;">
                                                     <div class="form-group-sm">
                                                         <label>Uso para generar titulos</label>
                                                         <div class="row">
@@ -358,7 +358,7 @@
                                                         <asp:DropDownList ID="ddlPeriodo_Evento" runat="server" CssClass="form-control input-sm" OnSelectedIndexChanged="ddlEspacio_Evento_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-4">
                                                     <div class="form-group-sm">
                                                         <label>Evento</label>
                                                         <asp:ListBox ID="lstEvento_Evento" CssClass="form-control input-sm" SelectionMode="Multiple" runat="server" Rows="3"></asp:ListBox>
@@ -370,7 +370,7 @@
                                                         <asp:Button ID="btnConsultar_Evento" runat="server" Text="Consultar" CssClass="btn btn-primary btn-sm" OnClick="btnConsultar_Evento_Click" />
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-2 text-right">
+                                                <div class="col-sm-1 text-right">
                                                     <div class="form-group-sm">
                                                         <label style="color: transparent">.</label><br />
                                                         <button id="printEvento" onclick="printContent('divContenidoEvento')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-print"></span>Imprimir</button>

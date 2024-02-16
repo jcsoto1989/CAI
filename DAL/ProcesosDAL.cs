@@ -91,7 +91,15 @@ namespace DAL
 
         public static DataTable obtenerEvento(int estado)
         {
-            string oSql = "select e.idEvento, e.nombre_Evento, e.idTipoEvento, tp.tipoEvento_descripcion, e.estado, e.idUsuario,e.idInstitucion,i.nombre_institucion,e.observaciones from evento e inner join tipo_evento tp on e.idTipoEvento = tp.idTipoEvento inner join institucion i on i.idInstitucion = e.idInstitucion where e.estado = " + estado;
+            string oSql;
+            if (estado == 1)
+            {
+            oSql = "select e.idEvento, e.nombre_Evento, e.idTipoEvento, tp.tipoEvento_descripcion, e.estado, e.idUsuario,e.idInstitucion,i.nombre_institucion,e.observaciones from evento e inner join tipo_evento tp on e.idTipoEvento = tp.idTipoEvento inner join institucion i on i.idInstitucion = e.idInstitucion where e.estado = " + estado;
+            }
+            else
+            {
+            oSql = "select e.idEvento, e.nombre_Evento, e.idTipoEvento, tp.tipoEvento_descripcion, e.estado, e.idUsuario,e.idInstitucion,i.nombre_institucion,e.observaciones from evento e inner join tipo_evento tp on e.idTipoEvento = tp.idTipoEvento inner join institucion i on i.idInstitucion = e.idInstitucion  ";
+            }
             try
             {
                 return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
@@ -497,7 +505,11 @@ namespace DAL
 
         public static DataTable obtenerPeriodo(int estado)
         {
-            String oSql = "select idPeriodo,periodo_descripcion,observaciones,estado from Periodo where estado = " + estado;
+            String oSql = "";
+            if(estado == 2)
+            { oSql = "select idPeriodo,periodo_descripcion,observaciones,estado from Periodo"; } else { 
+            oSql = "select idPeriodo,periodo_descripcion,observaciones,estado from Periodo where estado = " + estado;
+            }
             try
             {
                 return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
